@@ -1,0 +1,41 @@
+import { type LucideIcon } from "lucide-react";
+import { Container } from "@/components/ui/Container";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
+
+export type InfoItem = { icon: LucideIcon; title: string; description: string };
+
+export function InfoBand({
+  id,
+  eyebrow,
+  title,
+  description,
+  items,
+}: {
+  id?: string;
+  eyebrow: string;
+  title: string;
+  description?: string;
+  items: InfoItem[];
+}) {
+  return (
+    <section id={id} className="relative py-24 sm:py-32">
+      <Container className="flex flex-col gap-16">
+        <SectionHeading eyebrow={eyebrow} title={title} description={description} />
+        <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+          {items.map((item, index) => (
+            <Reveal key={item.title} delay={index * 0.06}>
+              <div className="flex h-full flex-col items-center gap-3 bg-surface px-6 py-10 text-center">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-accent/20 to-accent-2/20 text-accent">
+                  <item.icon className="h-6 w-6" />
+                </div>
+                <h3 className="text-base font-semibold text-foreground">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-foreground-muted">{item.description}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
