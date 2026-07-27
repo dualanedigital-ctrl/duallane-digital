@@ -1,5 +1,5 @@
 import { Coffee } from "lucide-react";
-import { cafe as img, headshots } from "./images";
+import { cafe as img } from "./images";
 import type { DemoLocale } from "@/lib/demo-i18n/LanguageContext";
 
 export const cafeShared = {
@@ -118,9 +118,9 @@ function buildFr() {
     reviewsEyebrow: "Avis clients",
     reviewsTitle: "Ce que disent nos habitués",
     reviews: [
-      { quote: "Sans aucun doute le meilleur latte au lait d'avoine du Plateau. Le personnel se souvient toujours de ma commande.", name: "Camille Beaulieu", role: "Avis Google", avatarId: headshots.womanGrayWall, rating: 5 },
-      { quote: "Confortable, assez calme pour travailler, et la pâtisserie aux amandes est incroyable. Mon endroit de tous les jours.", name: "Ryan Ouellette", role: "Avis Google", avatarId: headshots.manHenley, rating: 5 },
-      { quote: "Belle ambiance et des baristas vraiment sympathiques. Jamais déçue.", name: "Sophie Marchand", role: "Avis Google", avatarId: headshots.womanOutdoors, rating: 5 },
+      { quote: "Sans aucun doute le meilleur latte au lait d'avoine du Plateau. Le personnel se souvient toujours de ma commande.", name: "Camille Beaulieu", role: "Avis Google", rating: 5 },
+      { quote: "Confortable, assez calme pour travailler, et la pâtisserie aux amandes est incroyable. Mon endroit de tous les jours.", name: "Ryan Ouellette", role: "Avis Google", rating: 5 },
+      { quote: "Belle ambiance et des baristas vraiment sympathiques. Jamais déçue.", name: "Sophie Marchand", role: "Avis Google", rating: 5 },
     ],
     hours: [
       { day: "Lundi – Vendredi", hours: "7 h – 18 h" },
@@ -234,9 +234,9 @@ function buildEn() {
     reviewsEyebrow: "Customer Reviews",
     reviewsTitle: "What our regulars say",
     reviews: [
-      { quote: "Hands down the best oat milk latte in the Plateau. The staff remembers my order every time.", name: "Camille Beaulieu", role: "Google Review", avatarId: headshots.womanGrayWall, rating: 5 },
-      { quote: "Cozy, quiet enough to work, and the almond pastry is unreal. My daily spot.", name: "Ryan Ouellette", role: "Google Review", avatarId: headshots.manHenley, rating: 5 },
-      { quote: "Great atmosphere and genuinely friendly baristas. Never a bad visit.", name: "Sophie Marchand", role: "Google Review", avatarId: headshots.womanOutdoors, rating: 5 },
+      { quote: "Hands down the best oat milk latte in the Plateau. The staff remembers my order every time.", name: "Camille Beaulieu", role: "Google Review", rating: 5 },
+      { quote: "Cozy, quiet enough to work, and the almond pastry is unreal. My daily spot.", name: "Ryan Ouellette", role: "Google Review", rating: 5 },
+      { quote: "Great atmosphere and genuinely friendly baristas. Never a bad visit.", name: "Sophie Marchand", role: "Google Review", rating: 5 },
     ],
     hours: [
       { day: "Monday – Friday", hours: "7:00 AM – 6:00 PM" },

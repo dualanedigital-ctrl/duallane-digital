@@ -1,5 +1,5 @@
 import { HardHat, Hammer, Ruler, ShieldCheck, Building2, Home } from "lucide-react";
-import { construction as img, headshots } from "./images";
+import { construction as img } from "./images";
 import type { DemoLocale } from "@/lib/demo-i18n/LanguageContext";
 
 export const constructionShared = {
@@ -29,8 +29,8 @@ export const constructionContent: Record<
     services: { icon: typeof HardHat; title: string; description: string }[];
     projects: { imageId: string; category: string; caption: string }[];
     beforeAfter: { beforeId: string; afterId: string; caption: string }[];
-    testimonials: { quote: string; name: string; role: string; avatarId: string; rating: number }[];
-    team: { imageId: string; name: string; role: string; bio: string }[];
+    testimonials: { quote: string; name: string; role: string; rating: number }[];
+    team: { name: string; role: string; bio: string }[];
     quoteFields: Array<
       | { type: "text" | "tel" | "email"; name: string; label: string; placeholder?: string; required?: boolean; span: 1 | 2 }
       | { type: "select"; name: string; label: string; options: string[]; span: 1 | 2 }
@@ -84,14 +84,14 @@ export const constructionContent: Record<
       { beforeId: img.hardHat, afterId: img.crew, caption: "De la préparation du site à l'emménagement" },
     ],
     testimonials: [
-      { quote: "L'équipe a terminé la rénovation de nos bureaux deux semaines avant l'échéance, sans aucune surprise de coûts. Communication exceptionnelle.", name: "Marc Tremblay", role: "Propriétaire, Tremblay & Associés", avatarId: headshots.manGreyJacket, rating: 5 },
-      { quote: "La rénovation de notre cuisine a dépassé toutes nos attentes. L'équipe était professionnelle, propre et fière de son travail.", name: "Isabelle Roy", role: "Propriétaire, Westmount", avatarId: headshots.womanScarf, rating: 5 },
-      { quote: "Nous les avons utilisés pour trois aménagements commerciaux maintenant. Qualité constante et toujours joignables.", name: "David Chen", role: "Directeur des installations", avatarId: headshots.manBlueBlazer, rating: 5 },
+      { quote: "L'équipe a terminé la rénovation de nos bureaux deux semaines avant l'échéance, sans aucune surprise de coûts. Communication exceptionnelle.", name: "Marc Tremblay", role: "Propriétaire, Tremblay & Associés", rating: 5 },
+      { quote: "La rénovation de notre cuisine a dépassé toutes nos attentes. L'équipe était professionnelle, propre et fière de son travail.", name: "Isabelle Roy", role: "Propriétaire, Westmount", rating: 5 },
+      { quote: "Nous les avons utilisés pour trois aménagements commerciaux maintenant. Qualité constante et toujours joignables.", name: "David Chen", role: "Directeur des installations", rating: 5 },
     ],
     team: [
-      { imageId: headshots.manVNeck, name: "Philippe Gagnon", role: "Fondateur et entrepreneur général", bio: "25 ans d'expérience en construction commerciale et résidentielle au Québec." },
-      { imageId: headshots.womanDenimSuit, name: "Sarah Bouchard", role: "Chargée de projet", bio: "Veille à ce que chaque chantier respecte l'échéancier et que chaque client soit informé." },
-      { imageId: headshots.manGreyJacket, name: "Marc-André Fortin", role: "Surintendant de chantier principal", bio: "Supervise les opérations quotidiennes et le contrôle de la qualité sur chaque chantier." },
+      { name: "Philippe Gagnon", role: "Fondateur et entrepreneur général", bio: "25 ans d'expérience en construction commerciale et résidentielle au Québec." },
+      { name: "Sarah Bouchard", role: "Chargée de projet", bio: "Veille à ce que chaque chantier respecte l'échéancier et que chaque client soit informé." },
+      { name: "Marc-André Fortin", role: "Surintendant de chantier principal", bio: "Supervise les opérations quotidiennes et le contrôle de la qualité sur chaque chantier." },
     ],
     quoteFields: [
       { type: "text", name: "name", label: "Nom complet", placeholder: "Votre nom", required: true, span: 1 },
@@ -162,14 +162,14 @@ export const constructionContent: Record<
       { beforeId: img.hardHat, afterId: img.crew, caption: "Site Prep to Move-In Ready" },
     ],
     testimonials: [
-      { quote: "The team finished our office renovation two weeks ahead of schedule without a single change order surprise. Exceptional communication throughout.", name: "Marc Tremblay", role: "Owner, Tremblay & Associates", avatarId: headshots.manGreyJacket, rating: 5 },
-      { quote: "Our kitchen remodel exceeded every expectation. The crew was professional, clean, and clearly took pride in the work.", name: "Isabelle Roy", role: "Homeowner, Westmount", avatarId: headshots.womanScarf, rating: 5 },
-      { quote: "We've used them for three commercial buildouts now. Consistent quality and they always answer the phone.", name: "David Chen", role: "Facilities Director", avatarId: headshots.manBlueBlazer, rating: 5 },
+      { quote: "The team finished our office renovation two weeks ahead of schedule without a single change order surprise. Exceptional communication throughout.", name: "Marc Tremblay", role: "Owner, Tremblay & Associates", rating: 5 },
+      { quote: "Our kitchen remodel exceeded every expectation. The crew was professional, clean, and clearly took pride in the work.", name: "Isabelle Roy", role: "Homeowner, Westmount", rating: 5 },
+      { quote: "We've used them for three commercial buildouts now. Consistent quality and they always answer the phone.", name: "David Chen", role: "Facilities Director", rating: 5 },
     ],
     team: [
-      { imageId: headshots.manVNeck, name: "Philippe Gagnon", role: "Founder & General Contractor", bio: "25 years in commercial and residential construction across Quebec." },
-      { imageId: headshots.womanDenimSuit, name: "Sarah Bouchard", role: "Project Manager", bio: "Keeps every job on schedule and every client in the loop." },
-      { imageId: headshots.manGreyJacket, name: "Marc-Andre Fortin", role: "Lead Site Supervisor", bio: "Oversees daily operations and quality control on every site." },
+      { name: "Philippe Gagnon", role: "Founder & General Contractor", bio: "25 years in commercial and residential construction across Quebec." },
+      { name: "Sarah Bouchard", role: "Project Manager", bio: "Keeps every job on schedule and every client in the loop." },
+      { name: "Marc-Andre Fortin", role: "Lead Site Supervisor", bio: "Oversees daily operations and quality control on every site." },
     ],
     quoteFields: [
       { type: "text", name: "name", label: "Full Name", placeholder: "Your name", required: true, span: 1 },

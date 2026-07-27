@@ -1,5 +1,5 @@
 import { Gauge, Wrench, Battery, Snowflake, CircleGauge, Fuel, Search, ClipboardCheck, FileCheck2, ThumbsUp, ShieldCheck, CreditCard, Clock, BadgePercent } from "lucide-react";
-import { autoRepair as img, headshots } from "./images";
+import { autoRepair as img } from "./images";
 import type { DemoLocale } from "@/lib/demo-i18n/LanguageContext";
 
 export const autoRepairShared = {
@@ -77,9 +77,9 @@ function buildFr() {
     reviewsEyebrow: "Avis clients",
     reviewsTitle: "Ce que disent les automobilistes",
     reviews: [
-      { quote: "Premier garage à me montrer des photos du problème réel avant de me facturer quoi que ce soit. Une honnêteté rafraîchissante.", name: "Karim Haddad", role: "Avis Google", avatarId: headshots.manGreyJacket, rating: 5 },
-      { quote: "Rapide, prix justes, et ils expliquent vraiment ce qu'ils font. Mon nouveau garage de confiance.", name: "Julie Simard", role: "Avis Google", avatarId: headshots.womanCrewNeck, rating: 5 },
-      { quote: "Ils ont diagnostiqué un problème que deux autres garages n'avaient pas trouvé. Ça m'a économisé des milliers de dollars.", name: "Anthony Ricci", role: "Avis Google", avatarId: headshots.manBlueBlazer, rating: 5 },
+      { quote: "Premier garage à me montrer des photos du problème réel avant de me facturer quoi que ce soit. Une honnêteté rafraîchissante.", name: "Karim Haddad", role: "Avis Google", rating: 5 },
+      { quote: "Rapide, prix justes, et ils expliquent vraiment ce qu'ils font. Mon nouveau garage de confiance.", name: "Julie Simard", role: "Avis Google", rating: 5 },
+      { quote: "Ils ont diagnostiqué un problème que deux autres garages n'avaient pas trouvé. Ça m'a économisé des milliers de dollars.", name: "Anthony Ricci", role: "Avis Google", rating: 5 },
     ],
     bookingEyebrow: "Rendez-vous en ligne",
     bookingTitle: "Planifiez votre service",
@@ -176,9 +176,9 @@ function buildEn() {
     reviewsEyebrow: "Customer Reviews",
     reviewsTitle: "What drivers say about us",
     reviews: [
-      { quote: "First shop that's ever shown me photos of the actual problem before charging me a dime. Refreshingly honest.", name: "Karim Haddad", role: "Google Review", avatarId: headshots.manGreyJacket, rating: 5 },
-      { quote: "Fast, fair pricing, and they actually explain what they're doing. My new go-to shop.", name: "Julie Simard", role: "Google Review", avatarId: headshots.womanCrewNeck, rating: 5 },
-      { quote: "Diagnosed an issue two other shops couldn't find. Saved me thousands in unnecessary parts.", name: "Anthony Ricci", role: "Google Review", avatarId: headshots.manBlueBlazer, rating: 5 },
+      { quote: "First shop that's ever shown me photos of the actual problem before charging me a dime. Refreshingly honest.", name: "Karim Haddad", role: "Google Review", rating: 5 },
+      { quote: "Fast, fair pricing, and they actually explain what they're doing. My new go-to shop.", name: "Julie Simard", role: "Google Review", rating: 5 },
+      { quote: "Diagnosed an issue two other shops couldn't find. Saved me thousands in unnecessary parts.", name: "Anthony Ricci", role: "Google Review", rating: 5 },
     ],
     bookingEyebrow: "Online Booking",
     bookingTitle: "Schedule your service",

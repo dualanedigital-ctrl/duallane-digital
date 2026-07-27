@@ -1,5 +1,5 @@
 import { Dumbbell } from "lucide-react";
-import { gym as img, headshots } from "./images";
+import { gym as img } from "./images";
 import type { DemoLocale } from "@/lib/demo-i18n/LanguageContext";
 
 export const gymShared = {
@@ -48,9 +48,9 @@ function buildFr() {
     trainersEyebrow: "Nos entraîneurs",
     trainersTitle: "Entraînez-vous avec les meilleurs",
     trainers: [
-      { imageId: headshots.womanBlonde2, name: "Jade Lachance", role: "Entraîneuse-chef en force", bio: "Certifiée CSCS avec 10 ans d'expérience auprès d'athlètes de compétition." },
-      { imageId: headshots.manVNeck, name: "Marcus Reid", role: "Entraîneur personnel", bio: "Spécialisé en perte de gras et programmes de force fonctionnelle." },
-      { imageId: headshots.womanCloseup, name: "Priya Nair", role: "Entraîneuse personnelle", bio: "Certifiée en entraînement pré/post-natal et en mobilité." },
+      { name: "Jade Lachance", role: "Entraîneuse-chef en force", bio: "Certifiée CSCS avec 10 ans d'expérience auprès d'athlètes de compétition." },
+      { name: "Marcus Reid", role: "Entraîneur personnel", bio: "Spécialisé en perte de gras et programmes de force fonctionnelle." },
+      { name: "Priya Nair", role: "Entraîneuse personnelle", bio: "Certifiée en entraînement pré/post-natal et en mobilité." },
     ],
     scheduleEyebrow: "Horaire des cours",
     scheduleTitle: "Les cours de la semaine",
@@ -72,9 +72,9 @@ function buildFr() {
     storiesEyebrow: "Témoignages",
     storiesTitle: "Ce que disent nos membres",
     stories: [
-      { quote: "J'ai perdu 30 lb et gagné plus de force que je ne l'aurais cru possible. Les entraîneurs se soucient vraiment de nous.", name: "Vanessa Cloutier", role: "Membre depuis 2023", avatarId: headshots.womanBlonde, rating: 5 },
-      { quote: "La meilleure communauté de gym en ville. J'ai maintenant hâte à mes séances de 6 h du matin.", name: "Derek Osei", role: "Membre depuis 2022", avatarId: headshots.manGreyJacket, rating: 5 },
-      { quote: "Le plan Élite avec le coaching nutritionnel a complètement changé mon approche du conditionnement physique.", name: "Mei Lin", role: "Membre depuis 2024", avatarId: headshots.womanGlasses, rating: 5 },
+      { quote: "J'ai perdu 30 lb et gagné plus de force que je ne l'aurais cru possible. Les entraîneurs se soucient vraiment de nous.", name: "Vanessa Cloutier", role: "Membre depuis 2023", rating: 5 },
+      { quote: "La meilleure communauté de gym en ville. J'ai maintenant hâte à mes séances de 6 h du matin.", name: "Derek Osei", role: "Membre depuis 2022", rating: 5 },
+      { quote: "Le plan Élite avec le coaching nutritionnel a complètement changé mon approche du conditionnement physique.", name: "Mei Lin", role: "Membre depuis 2024", rating: 5 },
     ],
     bmiEyebrow: "Outil gratuit",
     bmiTitle: "Calculez votre IMC",
@@ -119,9 +119,9 @@ function buildEn() {
     trainersEyebrow: "Our Coaches",
     trainersTitle: "Train with the best",
     trainers: [
-      { imageId: headshots.womanBlonde2, name: "Jade Lachance", role: "Head Strength Coach", bio: "Certified CSCS with 10 years coaching competitive athletes." },
-      { imageId: headshots.manVNeck, name: "Marcus Reid", role: "Personal Trainer", bio: "Specializes in fat loss and functional strength programs." },
-      { imageId: headshots.womanCloseup, name: "Priya Nair", role: "Personal Trainer", bio: "Certified in pre/post-natal and mobility-focused training." },
+      { name: "Jade Lachance", role: "Head Strength Coach", bio: "Certified CSCS with 10 years coaching competitive athletes." },
+      { name: "Marcus Reid", role: "Personal Trainer", bio: "Specializes in fat loss and functional strength programs." },
+      { name: "Priya Nair", role: "Personal Trainer", bio: "Certified in pre/post-natal and mobility-focused training." },
     ],
     scheduleEyebrow: "Class Schedule",
     scheduleTitle: "This week's classes",
@@ -143,9 +143,9 @@ function buildEn() {
     storiesEyebrow: "Success Stories",
     storiesTitle: "Hear from our members",
     stories: [
-      { quote: "Lost 30 lbs and gained more strength than I ever thought possible. The coaches actually care.", name: "Vanessa Cloutier", role: "Member since 2023", avatarId: headshots.womanBlonde, rating: 5 },
-      { quote: "Best gym community in the city. I actually look forward to my 6 AM sessions now.", name: "Derek Osei", role: "Member since 2022", avatarId: headshots.manGreyJacket, rating: 5 },
-      { quote: "The Elite program with nutrition coaching completely changed how I approach fitness.", name: "Mei Lin", role: "Member since 2024", avatarId: headshots.womanGlasses, rating: 5 },
+      { quote: "Lost 30 lbs and gained more strength than I ever thought possible. The coaches actually care.", name: "Vanessa Cloutier", role: "Member since 2023", rating: 5 },
+      { quote: "Best gym community in the city. I actually look forward to my 6 AM sessions now.", name: "Derek Osei", role: "Member since 2022", rating: 5 },
+      { quote: "The Elite program with nutrition coaching completely changed how I approach fitness.", name: "Mei Lin", role: "Member since 2024", rating: 5 },
     ],
     bmiEyebrow: "Free Tool",
     bmiTitle: "Calculate your BMI",

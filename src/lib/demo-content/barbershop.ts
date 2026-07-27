@@ -1,5 +1,5 @@
 import { Scissors, Sparkles, Brush, Crown } from "lucide-react";
-import { barbershop as img, headshots } from "./images";
+import { barbershop as img } from "./images";
 import type { DemoLocale } from "@/lib/demo-i18n/LanguageContext";
 
 export const barbershopShared = {
@@ -49,9 +49,9 @@ function buildFr() {
     barbersEyebrow: "Notre équipe",
     barbersTitle: "Nos maîtres coiffeurs",
     barbers: [
-      { imageId: headshots.manHenley, name: "Antoine Dubois", role: "Maître coiffeur et propriétaire", bio: "15 ans d'expérience, formé à Montréal et à Londres." },
-      { imageId: headshots.manGreyJacket, name: "Marcus Webb", role: "Coiffeur senior", bio: "Spécialiste des dégradés modernes et des pompadours classiques." },
-      { imageId: headshots.manBlueBlazer, name: "Elias Cormier", role: "Coiffeur", bio: "Reconnu pour son travail de barbe minutieux et ses rasages au rasoir droit." },
+      { name: "Antoine Dubois", role: "Maître coiffeur et propriétaire", bio: "15 ans d'expérience, formé à Montréal et à Londres." },
+      { name: "Marcus Webb", role: "Coiffeur senior", bio: "Spécialiste des dégradés modernes et des pompadours classiques." },
+      { name: "Elias Cormier", role: "Coiffeur", bio: "Reconnu pour son travail de barbe minutieux et ses rasages au rasoir droit." },
     ],
     pricesEyebrow: "Liste de prix",
     pricesTitle: "Des prix simples et transparents",
@@ -100,9 +100,9 @@ function buildFr() {
     reviewsEyebrow: "Avis clients",
     reviewsTitle: "Ce que disent nos clients",
     reviews: [
-      { quote: "Le meilleur dégradé que j'ai eu à Montréal, sans hésitation. Antoine est un vrai artisan.", name: "Julien Fortin", role: "Avis Google", avatarId: headshots.manVNeck, rating: 5 },
-      { quote: "Le rasage à la serviette chaude vaut à lui seul la visite. Belle ambiance, sans précipitation.", name: "Marc Villeneuve", role: "Avis Google", avatarId: headshots.manGreyJacket, rating: 5 },
-      { quote: "Réservé en ligne en quelques secondes, entré et sorti avec une coupe parfaite. Mon nouvel endroit régulier.", name: "Chris Okafor", role: "Avis Google", avatarId: headshots.manBlueBlazer, rating: 5 },
+      { quote: "Le meilleur dégradé que j'ai eu à Montréal, sans hésitation. Antoine est un vrai artisan.", name: "Julien Fortin", role: "Avis Google", rating: 5 },
+      { quote: "Le rasage à la serviette chaude vaut à lui seul la visite. Belle ambiance, sans précipitation.", name: "Marc Villeneuve", role: "Avis Google", rating: 5 },
+      { quote: "Réservé en ligne en quelques secondes, entré et sorti avec une coupe parfaite. Mon nouvel endroit régulier.", name: "Chris Okafor", role: "Avis Google", rating: 5 },
     ],
     hoursNote: "Sans rendez-vous bienvenu, mais rendez-vous recommandé.",
     hours: [
@@ -150,9 +150,9 @@ function buildEn() {
     barbersEyebrow: "Meet The Team",
     barbersTitle: "Our master barbers",
     barbers: [
-      { imageId: headshots.manHenley, name: "Antoine Dubois", role: "Master Barber & Owner", bio: "15 years of experience, trained in Montreal and London." },
-      { imageId: headshots.manGreyJacket, name: "Marcus Webb", role: "Senior Barber", bio: "Specialist in modern fades and classic pompadours." },
-      { imageId: headshots.manBlueBlazer, name: "Elias Cormier", role: "Barber", bio: "Known for detailed beard work and straight-razor shaves." },
+      { name: "Antoine Dubois", role: "Master Barber & Owner", bio: "15 years of experience, trained in Montreal and London." },
+      { name: "Marcus Webb", role: "Senior Barber", bio: "Specialist in modern fades and classic pompadours." },
+      { name: "Elias Cormier", role: "Barber", bio: "Known for detailed beard work and straight-razor shaves." },
     ],
     pricesEyebrow: "Price List",
     pricesTitle: "Simple, transparent pricing",
@@ -201,9 +201,9 @@ function buildEn() {
     reviewsEyebrow: "Client Reviews",
     reviewsTitle: "What our clients say",
     reviews: [
-      { quote: "Best fade I've had in Montreal, period. Antoine is a true craftsman.", name: "Julien Fortin", role: "Google Review", avatarId: headshots.manVNeck, rating: 5 },
-      { quote: "The hot towel shave is worth it alone. Great atmosphere, no rush.", name: "Marc Villeneuve", role: "Google Review", avatarId: headshots.manGreyJacket, rating: 5 },
-      { quote: "Booked online in seconds, in and out with a perfect cut. My new regular spot.", name: "Chris Okafor", role: "Google Review", avatarId: headshots.manBlueBlazer, rating: 5 },
+      { quote: "Best fade I've had in Montreal, period. Antoine is a true craftsman.", name: "Julien Fortin", role: "Google Review", rating: 5 },
+      { quote: "The hot towel shave is worth it alone. Great atmosphere, no rush.", name: "Marc Villeneuve", role: "Google Review", rating: 5 },
+      { quote: "Booked online in seconds, in and out with a perfect cut. My new regular spot.", name: "Chris Okafor", role: "Google Review", rating: 5 },
     ],
     hoursNote: "Walk-ins welcome, but appointments are recommended.",
     hours: [

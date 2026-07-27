@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { unsplash } from "@/lib/demo-content/images";
+import { getInitials } from "@/lib/utils";
 
 export function AboutSplit({
   id,
@@ -9,6 +10,7 @@ export function AboutSplit({
   title,
   paragraphs,
   imageId,
+  avatarName,
   stats,
   reverse,
 }: {
@@ -16,7 +18,9 @@ export function AboutSplit({
   eyebrow: string;
   title: string;
   paragraphs: string[];
-  imageId: string;
+  imageId?: string;
+  /** When set, renders an initials placeholder instead of a photo (no real image tied to this name). */
+  avatarName?: string;
   stats?: { value: string; label: string }[];
   reverse?: boolean;
 }) {
@@ -27,7 +31,13 @@ export function AboutSplit({
       >
         <Reveal direction={reverse ? "left" : "right"}>
           <div className="relative aspect-4/3 w-full overflow-hidden rounded-2xl border border-border">
-            <Image src={unsplash(imageId, 900)} alt="" fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
+            {avatarName ? (
+              <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-accent to-accent-2">
+                <span className="text-6xl font-semibold text-white">{getInitials(avatarName)}</span>
+              </div>
+            ) : (
+              imageId && <Image src={unsplash(imageId, 900)} alt="" fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
+            )}
           </div>
         </Reveal>
         <Reveal direction={reverse ? "right" : "left"} delay={0.1}>

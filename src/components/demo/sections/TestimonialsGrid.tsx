@@ -1,15 +1,13 @@
-import Image from "next/image";
 import { Star } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
-import { unsplash } from "@/lib/demo-content/images";
+import { getInitials } from "@/lib/utils";
 
 export type Testimonial = {
   quote: string;
   name: string;
   role?: string;
-  avatarId: string;
   rating?: number;
 };
 
@@ -41,8 +39,8 @@ export function TestimonialsGrid({
                 </div>
                 <p className="flex-1 text-sm leading-relaxed text-foreground-muted">“{item.quote}”</p>
                 <div className="flex items-center gap-3 pt-2">
-                  <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
-                    <Image src={unsplash(item.avatarId, 80, 80)} alt="" fill className="object-cover" sizes="40px" />
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent-2 text-xs font-semibold text-white">
+                    {getInitials(item.name)}
                   </span>
                   <div>
                     <p className="text-sm font-medium text-foreground">{item.name}</p>

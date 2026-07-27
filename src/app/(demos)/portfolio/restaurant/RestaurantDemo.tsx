@@ -49,7 +49,7 @@ export function RestaurantDemo() {
         variant="list"
       />
 
-      <AboutSplit id="chef" eyebrow={c.chef.eyebrow} title={c.chef.name} paragraphs={c.chef.paragraphs} imageId={c.chef.imageId} stats={c.chef.stats} />
+      <AboutSplit id="chef" eyebrow={c.chef.eyebrow} title={c.chef.name} paragraphs={c.chef.paragraphs} avatarName={c.chef.name} stats={c.chef.stats} />
 
       <GalleryGrid id="gallery" eyebrow={c.galleryEyebrow} title={c.galleryTitle} items={c.gallery} />
 

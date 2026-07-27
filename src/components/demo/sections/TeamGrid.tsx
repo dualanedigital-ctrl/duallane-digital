@@ -1,11 +1,9 @@
-import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
-import { unsplash } from "@/lib/demo-content/images";
+import { getInitials } from "@/lib/utils";
 
 export type TeamMember = {
-  imageId: string;
   name: string;
   role: string;
   bio?: string;
@@ -32,14 +30,8 @@ export function TeamGrid({
           {items.map((item, index) => (
             <Reveal key={item.name} delay={(index % 3) * 0.08}>
               <div className="group overflow-hidden rounded-2xl border border-border bg-surface">
-                <div className="relative aspect-4/5 w-full overflow-hidden">
-                  <Image
-                    src={unsplash(item.imageId, 640, 800)}
-                    alt={item.name}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                <div className="flex aspect-4/5 w-full items-center justify-center bg-gradient-to-br from-accent to-accent-2">
+                  <span className="text-5xl font-semibold text-white">{getInitials(item.name)}</span>
                 </div>
                 <div className="p-5">
                   <h3 className="text-base font-semibold text-foreground">{item.name}</h3>

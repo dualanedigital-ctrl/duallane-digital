@@ -1,5 +1,5 @@
 import { UtensilsCrossed } from "lucide-react";
-import { restaurant as img, headshots } from "./images";
+import { restaurant as img } from "./images";
 import type { DemoLocale } from "@/lib/demo-i18n/LanguageContext";
 
 export const restaurantShared = {
@@ -84,7 +84,6 @@ function buildFr() {
         "Formé à Lyon et fort de plus de 18 ans dans des cuisines étoilées en France et au Québec, le chef Jean-Marc propose une approche raffinée et sans prétention de la cuisine française moderne.",
         "Chaque menu est élaboré à partir des produits les plus frais du marché chaque matin — une philosophie qui a fidélisé notre clientèle depuis l'ouverture en 2015.",
       ],
-      imageId: headshots.manVNeck,
       stats: [
         { value: "18+", label: "Années d'expérience" },
         { value: "3", label: "Cuisines étoilées" },
@@ -104,9 +103,9 @@ function buildFr() {
     reviewsEyebrow: "Avis des clients",
     reviewsTitle: "Ce que disent nos clients",
     testimonials: [
-      { quote: "Meilleur menu dégustation du Vieux-Montréal, sans hésitation. Le confit de canard vaut à lui seul le déplacement.", name: "Émilie Rousseau", role: "Avis Google", avatarId: headshots.womanBlonde, rating: 5 },
-      { quote: "Service impeccable et les suggestions d'accords mets-vins étaient parfaites toute la soirée.", name: "Thomas Bergeron", role: "Avis Google", avatarId: headshots.manHenley, rating: 5 },
-      { quote: "Notre souper d'anniversaire était parfait du début à la fin. Nous reviendrons certainement.", name: "Nadia Petrov", role: "Avis Google", avatarId: headshots.womanGlasses, rating: 5 },
+      { quote: "Meilleur menu dégustation du Vieux-Montréal, sans hésitation. Le confit de canard vaut à lui seul le déplacement.", name: "Émilie Rousseau", role: "Avis Google", rating: 5 },
+      { quote: "Service impeccable et les suggestions d'accords mets-vins étaient parfaites toute la soirée.", name: "Thomas Bergeron", role: "Avis Google", rating: 5 },
+      { quote: "Notre souper d'anniversaire était parfait du début à la fin. Nous reviendrons certainement.", name: "Nadia Petrov", role: "Avis Google", rating: 5 },
     ],
     eventsEyebrow: "À venir",
     eventsTitle: "Événements et soirées spéciales",
@@ -191,7 +190,6 @@ function buildEn() {
         "Trained in Lyon and with over 18 years across Michelin-starred kitchens in France and Quebec, Chef Jean-Marc brings a refined but unpretentious approach to modern French cooking.",
         "Every menu is built around what's freshest at the market that morning — a philosophy that's earned a loyal following since opening its doors in 2015.",
       ],
-      imageId: headshots.manVNeck,
       stats: [
         { value: "18+", label: "Years Experience" },
         { value: "3", label: "Michelin Kitchens" },
@@ -211,9 +209,9 @@ function buildEn() {
     reviewsEyebrow: "Guest Reviews",
     reviewsTitle: "What our guests say",
     testimonials: [
-      { quote: "Best tasting menu in Old Montreal, hands down. The duck confit is worth the trip alone.", name: "Émilie Rousseau", role: "Google Review", avatarId: headshots.womanBlonde, rating: 5 },
-      { quote: "Impeccable service and the wine pairing suggestions were spot on all night.", name: "Thomas Bergeron", role: "Google Review", avatarId: headshots.manHenley, rating: 5 },
-      { quote: "Our anniversary dinner was perfect from start to finish. We'll be back for sure.", name: "Nadia Petrov", role: "Google Review", avatarId: headshots.womanGlasses, rating: 5 },
+      { quote: "Best tasting menu in Old Montreal, hands down. The duck confit is worth the trip alone.", name: "Émilie Rousseau", role: "Google Review", rating: 5 },
+      { quote: "Impeccable service and the wine pairing suggestions were spot on all night.", name: "Thomas Bergeron", role: "Google Review", rating: 5 },
+      { quote: "Our anniversary dinner was perfect from start to finish. We'll be back for sure.", name: "Nadia Petrov", role: "Google Review", rating: 5 },
     ],
     eventsEyebrow: "Upcoming",
     eventsTitle: "Events & special evenings",

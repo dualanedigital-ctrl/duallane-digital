@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { Loader2, X } from "lucide-react";
+import { X } from "lucide-react";
 import { DemoLanguageProvider } from "@/lib/demo-i18n/LanguageContext";
 import { DemoScrollerProvider } from "@/components/demo/DemoScrollerContext";
 
@@ -147,13 +147,8 @@ export function PortfolioDemoModal({
           <X className="h-5 w-5" />
         </button>
 
-        <div className="relative h-full w-full bg-background">
-          <div className="absolute inset-0 flex items-center justify-center text-foreground-muted">
-            <Loader2 className="h-6 w-6 animate-spin" aria-hidden />
-          </div>
-          <div className="relative h-full w-full">
-            <ScrolledDemo demoId={renderedId} />
-          </div>
+        <div className="h-full w-full bg-background">
+          <ScrolledDemo demoId={renderedId} />
         </div>
       </motion.div>
     </motion.div>

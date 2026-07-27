@@ -106,21 +106,3 @@ export const gym = {
   battleRope: "photo-1548690312-e3b507d8c110",
   barbellLift: "photo-1722925541142-5db2668ca492",
 };
-
-/** Generic professional headshots reused for team/staff/trainer/chef sections. */
-export const headshots = {
-  manHenley: "photo-1500648767791-00dcc994a43e",
-  manVNeck: "photo-1507003211169-0a1dd7228f2d",
-  womanCloseup: "photo-1494790108377-be9c29b29330",
-  womanBlonde: "photo-1699899657680-421c2c2d5064",
-  womanScarf: "photo-1609436132311-e4b0c9370469",
-  womanBlonde2: "photo-1659481993364-4512775ed911",
-  womanGrayWall: "photo-1514960919797-5ff58c52e5ba",
-  womanOutdoors: "photo-1760552069633-c05f246a5d8c",
-  womanGlasses: "photo-1701728667207-54b43dbdab97",
-  manGreyJacket: "photo-1576558656222-ba66febe3dec",
-  womanDenimSuit: "photo-1780733058439-b8952315e59c",
-  manBlueBlazer: "photo-1780733057950-0dc9055ddae9",
-  womanCrewNeck: "photo-1609371497456-3a55a205d5eb",
-  personGreySweater: "photo-1655249493799-9cee4fe983bb",
-};
