@@ -56,8 +56,15 @@ export function TextReveal({
 
   const Tag = as;
 
+  // Keyed by the text itself: SplitText mutates this element's DOM into
+  // nested line/mask <div>s, so when `children` changes (e.g. a locale
+  // switch) React's usual "just update the text node" reconciliation has no
+  // text node to find anymore and silently no-ops, leaving the old language
+  // stuck on screen. Keying forces a full unmount/remount instead — GSAP's
+  // cleanup reverts the old split, and the new instance mounts with plain
+  // text and re-splits it fresh.
   return (
-    <Tag ref={ref} className={className}>
+    <Tag key={children} ref={ref} className={className}>
       {children}
     </Tag>
   );
