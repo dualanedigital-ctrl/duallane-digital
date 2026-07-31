@@ -36,7 +36,7 @@ export function AboutSplit({
                 <span className="text-6xl font-semibold text-white">{getInitials(avatarName)}</span>
               </div>
             ) : (
-              imageId && <Image src={unsplash(imageId, 900)} alt="" fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
+              imageId && <Image src={unsplash(imageId, 900)} alt={title} fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
             )}
           </div>
         </Reveal>

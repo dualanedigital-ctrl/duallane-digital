@@ -58,28 +58,7 @@ export type Translations = {
     eyebrow: string;
     title: string;
     description: string;
-    items: { question: string; answer: string }[];
-  };
-  askQuestion: {
-    eyebrow: string;
-    title: string;
-    description: string;
-    topics: { icon: string; label: string }[];
-    form: {
-      nameLabel: string;
-      namePlaceholder: string;
-      businessNameLabel: string;
-      businessNameOptional: string;
-      businessNamePlaceholder: string;
-      emailLabel: string;
-      emailPlaceholder: string;
-      questionLabel: string;
-      questionPlaceholder: string;
-      submit: string;
-      submitting: string;
-      successMessage: string;
-      genericError: string;
-    };
+    items: { question: string; answer: string; badge?: string; ctaLabel?: string }[];
   };
   contact: {
     eyebrow: string;
@@ -162,7 +141,7 @@ export const translations: Record<Locale, Translations> = {
         "DualLane Digital conçoit des sites rapides, modernes et sur mesure pour les entreprises qui veulent une présence en ligne à la hauteur de leur ambition.",
       cta: "Demander un tarif",
       callCta: "Appeler maintenant",
-      trustLine: "Satisfaction garantie sur chaque projet",
+      trustLine: "Réponse sous 48h · Consultation sans engagement",
       scrollCue: "Découvrir",
     },
     whyUs: {
@@ -320,14 +299,21 @@ export const translations: Record<Locale, Translations> = {
       description: "Tout ce que vous devez savoir avant de vous lancer avec DualLane Digital.",
       items: [
         {
+          question: "Combien coûte un site web ?",
+          badge: "Offre de lancement",
+          answer:
+            "Pour une durée limitée, nous créons des sites web professionnels à seulement 300 $ CA, en échange de l'autorisation d'ajouter le site à notre portfolio. Cette offre nous permet de bâtir notre portfolio tout en offrant à nos premiers clients un site web moderne, performant et professionnel à un tarif exceptionnel. Le prix comprend un site web personnalisé, adapté à votre entreprise, optimisé pour mobile, rapide, sécurisé et conçu pour convertir vos visiteurs en clients. Cette offre est disponible pour une durée limitée.",
+          ctaLabel: "Obtenir cette offre",
+        },
+        {
           question: "Combien de temps faut-il pour créer mon site ?",
           answer:
             "En général entre 2 et 4 semaines selon la complexité du projet, de la première discussion jusqu'à la mise en ligne. Un site vitrine simple peut être livré plus rapidement, tandis qu'une refonte complète ou un site e-commerce demandera un peu plus de temps.",
         },
         {
-          question: "Combien coûte un site web sur mesure ?",
+          question: "Et pour un projet plus complexe (e-commerce, fonctionnalités avancées) ?",
           answer:
-            "Chaque projet est unique, donc chaque tarif l'est aussi. Après notre premier échange, vous recevez une soumission claire et détaillée, sans frais cachés, adaptée à vos objectifs et à votre budget.",
+            "L'offre de lancement à 300 $ CA couvre un site vitrine standard. Pour les projets plus complexes — boutique en ligne, fonctionnalités sur mesure, intégrations spécifiques — chaque besoin est différent, donc chaque soumission l'est aussi. Après notre premier échange, vous recevez une soumission claire et détaillée, sans frais cachés, adaptée à vos objectifs et à votre budget.",
         },
         {
           question: "Est-ce que je pourrai modifier mon site moi-même ?",
@@ -350,33 +336,6 @@ export const translations: Record<Locale, Translations> = {
             "Nous restons disponibles pour le support, les ajustements et la maintenance. Plusieurs forfaits d'accompagnement sont proposés selon vos besoins à long terme.",
         },
       ],
-    },
-    askQuestion: {
-      eyebrow: "Une question rapide",
-      title: "Une question ?",
-      description:
-        "Pas encore prêt pour un devis ? Posez-nous vos questions sur les sites web, les prix, le SEO, le design ou votre projet. On se fera un plaisir de vous aider.",
-      topics: [
-        { icon: "MessageCircle", label: "Questions sur le site web" },
-        { icon: "CircleDollarSign", label: "Questions sur les prix" },
-        { icon: "Rocket", label: "Conseils de projet" },
-      ],
-      form: {
-        nameLabel: "Nom complet",
-        namePlaceholder: "Jean Tremblay",
-        businessNameLabel: "Nom de l'entreprise",
-        businessNameOptional: "(optionnel)",
-        businessNamePlaceholder: "Boulangerie Dupont",
-        emailLabel: "Email",
-        emailPlaceholder: "jean@entreprise.com",
-        questionLabel: "Votre question",
-        questionPlaceholder: "Posez-nous votre question...",
-        submit: "Envoyer ma question",
-        submitting: "Envoi en cours...",
-        successMessage:
-          "Merci ! Nous avons bien reçu votre question et nous vous répondrons dans les plus brefs délais.",
-        genericError: "Une erreur est survenue. Veuillez réessayer.",
-      },
     },
     contact: {
       eyebrow: "Contact",
@@ -484,7 +443,7 @@ export const translations: Record<Locale, Translations> = {
         "DualLane Digital builds fast, modern, custom websites for businesses that want an online presence as ambitious as they are.",
       cta: "Get a Quote",
       callCta: "Call Now",
-      trustLine: "Satisfaction guaranteed on every project",
+      trustLine: "Response within 48h · No-obligation consultation",
       scrollCue: "Explore",
     },
     whyUs: {
@@ -642,14 +601,21 @@ export const translations: Record<Locale, Translations> = {
       description: "Everything you need to know before getting started with DualLane Digital.",
       items: [
         {
+          question: "How much does a website cost?",
+          badge: "Launch Offer",
+          answer:
+            "For a limited time, we're building professional websites for just $300 CAD, in exchange for permission to feature the site in our portfolio. This offer lets us grow our portfolio while giving our first clients a modern, high-performing, professional website at an exceptional rate. The price includes a fully custom website tailored to your business — mobile-optimized, fast, secure, and designed to convert your visitors into clients. This offer is available for a limited time.",
+          ctaLabel: "Get This Offer",
+        },
+        {
           question: "How long does it take to build my site?",
           answer:
             "Generally between 2 and 4 weeks depending on project complexity, from our first discussion to launch. A simple showcase site can be delivered faster, while a full redesign or e-commerce site will take a bit more time.",
         },
         {
-          question: "How much does a custom website cost?",
+          question: "What about a more complex project (e-commerce, advanced features)?",
           answer:
-            "Every project is unique, so every quote is too. After our first conversation, you'll receive a clear, detailed quote — no hidden fees — tailored to your goals and budget.",
+            "The $300 CAD launch offer covers a standard showcase website. For more complex projects — online stores, custom features, specific integrations — every need is different, so every quote is too. After our first conversation, you'll receive a clear, detailed quote — no hidden fees — tailored to your goals and budget.",
         },
         {
           question: "Will I be able to update my site myself?",
@@ -672,32 +638,6 @@ export const translations: Record<Locale, Translations> = {
             "We remain available for support, adjustments, and maintenance. Several support plans are available depending on your long-term needs.",
         },
       ],
-    },
-    askQuestion: {
-      eyebrow: "Quick Question",
-      title: "Have a Question?",
-      description:
-        "Not ready for a quote? Ask us anything about websites, pricing, SEO, design, or your project. We'll be happy to help.",
-      topics: [
-        { icon: "MessageCircle", label: "Website Questions" },
-        { icon: "CircleDollarSign", label: "Pricing Questions" },
-        { icon: "Rocket", label: "Project Advice" },
-      ],
-      form: {
-        nameLabel: "Full name",
-        namePlaceholder: "John Smith",
-        businessNameLabel: "Business name",
-        businessNameOptional: "(optional)",
-        businessNamePlaceholder: "Acme Inc.",
-        emailLabel: "Email",
-        emailPlaceholder: "john@company.com",
-        questionLabel: "Your question",
-        questionPlaceholder: "Ask us your question...",
-        submit: "Send Question",
-        submitting: "Sending...",
-        successMessage: "Thank you! We've received your question and will reply as soon as possible.",
-        genericError: "Something went wrong. Please try again.",
-      },
     },
     contact: {
       eyebrow: "Contact",

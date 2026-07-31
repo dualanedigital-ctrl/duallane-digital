@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { DemoLanguageSwitcher } from "@/components/demo/DemoLanguageSwitcher";
 import { useDemoLanguage } from "@/lib/demo-i18n/LanguageContext";
 import { demoUiStrings } from "@/lib/demo-i18n/uiStrings";
+import { EASE_OUT_EXPO } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 export type DemoNavLink = { label: string; href: string };
@@ -107,7 +108,7 @@ export function DemoNavbar({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.25, ease: EASE_OUT_EXPO }}
             className="overflow-hidden border-t border-border bg-background/95 backdrop-blur-xl lg:hidden"
           >
             <Container className="flex flex-col gap-4 py-6">

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Sparkles, type LucideIcon } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { useDemoLanguage } from "@/lib/demo-i18n/LanguageContext";
@@ -71,13 +72,13 @@ export function DemoFooter({
           <p>
             © {year} {businessName}. {ui.allRightsReserved}
           </p>
-          <a
+          <Link
             href="/"
             className="inline-flex items-center gap-1.5 text-foreground-subtle transition-colors hover:text-accent"
           >
             <Sparkles className="h-3.5 w-3.5" />
             {ui.designCredit}
-          </a>
+          </Link>
         </Container>
       </div>
     </footer>

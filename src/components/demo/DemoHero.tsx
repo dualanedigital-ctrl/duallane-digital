@@ -11,10 +11,9 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 import { useDemoScroller } from "@/components/demo/DemoScrollerContext";
+import { EASE_OUT_EXPO as EASE } from "@/lib/motion";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
-
-const EASE = [0.16, 1, 0.3, 1] as const;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -69,8 +68,9 @@ export function DemoHero({
       <div ref={imageRef} className="absolute inset-0 -z-20 scale-110">
         <Image src={imageUrl} alt="" fill priority sizes="100vw" className="object-cover" />
       </div>
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/70 to-background/30" />
-      <div className="absolute inset-0 -z-10 bg-background/40" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/85 to-background/55" />
+      <div className="absolute inset-0 -z-10 bg-background/45" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-accent/15 via-transparent to-transparent" />
 
       <Container className="flex flex-col items-start text-left">
         <motion.span

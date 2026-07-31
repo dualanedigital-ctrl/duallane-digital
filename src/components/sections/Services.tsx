@@ -9,11 +9,13 @@ import {
   Check,
   type LucideIcon,
 } from "lucide-react";
+import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { servicesIcons } from "@/lib/site";
 import { useTranslation } from "@/lib/i18n/LanguageContext";
+import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 
 const icons: Record<string, LucideIcon> = {
   LayoutTemplate,
@@ -25,6 +27,7 @@ const icons: Record<string, LucideIcon> = {
 
 export function Services() {
   const { t } = useTranslation();
+  const reducedMotion = usePrefersReducedMotion();
 
   return (
     <section id="services" className="relative py-24 sm:py-32">
@@ -48,9 +51,13 @@ export function Services() {
                       : "border-border bg-surface hover:border-border-strong hover:bg-surface-hover"
                   }`}
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-accent/20 to-accent-2/20 text-accent">
+                  <motion.div
+                    className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-accent/20 to-accent-2/20 text-accent"
+                    whileHover={reducedMotion ? undefined : { scale: 1.08, rotate: 4 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                  >
                     <Icon className="h-6 w-6" />
-                  </div>
+                  </motion.div>
                   <h3 className="mt-6 text-xl font-semibold text-foreground">
                     {service.title}
                   </h3>

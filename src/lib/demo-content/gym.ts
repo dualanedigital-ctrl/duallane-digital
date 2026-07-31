@@ -4,7 +4,6 @@ import type { DemoLocale } from "@/lib/demo-i18n/LanguageContext";
 
 export const gymShared = {
   icon: Dumbbell,
-  theme: { accent: "#22c55e", accent2: "#06b6d4" },
   phone: "(514) 555-0174",
   email: "join@gym-demo.com",
   address: "980 Rue Wellington, Montreal, QC H3C 1T4",

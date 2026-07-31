@@ -1,6 +1,7 @@
 "use client";
 
 import { DemoNavbar } from "@/components/demo/DemoNavbar";
+import { DemoGlowBackdrop } from "@/components/demo/DemoGlowBackdrop";
 import { DemoFooter } from "@/components/demo/DemoFooter";
 import { DemoHero } from "@/components/demo/DemoHero";
 import { ServicesGrid } from "@/components/demo/sections/ServicesGrid";
@@ -21,7 +22,8 @@ export function BarbershopDemo() {
   const c = barbershopContent[locale];
 
   return (
-    <div style={{ "--accent": shared.theme.accent, "--accent-2": shared.theme.accent2 } as React.CSSProperties}>
+    <div className="demo-light-theme min-h-screen bg-background text-foreground">
+      <DemoGlowBackdrop />
       <DemoNavbar businessName={c.businessName} icon={shared.icon} navLinks={c.navLinks} ctaLabel={c.ctaLabel} ctaHref="#booking" />
 
       <DemoHero

@@ -6,6 +6,7 @@ import { Plus } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { EASE_OUT_EXPO } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 export type FaqEntry = { question: string; answer: string };
@@ -48,7 +49,7 @@ function FaqRow({
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.25, ease: EASE_OUT_EXPO }}
             className="overflow-hidden"
           >
             <p className="px-6 pb-5 text-sm leading-relaxed text-foreground-muted">{answer}</p>

@@ -66,7 +66,7 @@ function Slider({
           className="absolute inset-y-0 z-10 flex w-0.5 -translate-x-1/2 items-center justify-center bg-white"
           style={{ left: `${position}%` }}
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-background shadow-lg">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-foreground shadow-lg">
             <MoveHorizontal className="h-4 w-4" />
           </span>
         </div>

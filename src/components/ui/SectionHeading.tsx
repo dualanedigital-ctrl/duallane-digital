@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Reveal } from "@/components/ui/Reveal";
+import { TextReveal } from "@/components/ui/TextReveal";
 
 export function SectionHeading({
   eyebrow,
@@ -29,16 +30,16 @@ export function SectionHeading({
           </span>
         </Reveal>
       )}
-      <Reveal delay={0.05}>
-        <h2
-          className={cn(
-            "text-3xl font-semibold tracking-tight text-balance sm:text-4xl lg:text-5xl",
-            align === "center" ? "max-w-2xl" : "max-w-xl"
-          )}
-        >
-          {title}
-        </h2>
-      </Reveal>
+      <TextReveal
+        as="h2"
+        delay={0.05}
+        className={cn(
+          "text-3xl font-semibold tracking-tight text-balance sm:text-4xl lg:text-5xl",
+          align === "center" ? "max-w-2xl" : "max-w-xl"
+        )}
+      >
+        {title}
+      </TextReveal>
       {description && (
         <Reveal delay={0.1}>
           <p

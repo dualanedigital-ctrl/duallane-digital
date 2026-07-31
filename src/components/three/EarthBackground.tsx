@@ -6,8 +6,19 @@ import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 import { useMediaQuery } from "@/lib/use-media-query";
 import { cn } from "@/lib/utils";
 
+// Tried bundling this eagerly (no dynamic()/ssr:false) to remove the extra
+// chunk-fetch round-trip, but @react-three/fiber's Canvas doesn't reliably
+// re-measure its container on hydration (it stayed pinned at the browser's
+// default 300x150 canvas size until an explicit resize event fired) — a
+// regression to the Earth's actual size, which is explicitly off-limits.
+// Kept as ssr:false; textures are preloaded instead (see (main)/layout.tsx)
+// so the chunk-fetch and texture-fetch overlap rather than happening in
+// sequence after mount.
 const EarthScene = dynamic(
-  () => import("@/components/three/EarthScene").then((mod) => mod.EarthScene),
+  () =>
+    import(
+      /* webpackPrefetch: true */ "@/components/three/EarthScene"
+    ).then((mod) => mod.EarthScene),
   { ssr: false }
 );
 

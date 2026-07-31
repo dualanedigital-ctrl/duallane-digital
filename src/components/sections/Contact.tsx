@@ -191,7 +191,7 @@ export function Contact() {
                 </div>
                 <div className="flex flex-col gap-2 sm:col-span-1">
                   <label htmlFor="projectType" className="text-sm font-medium text-foreground">
-                    {form.projectTypeLabel}
+                    {form.projectTypeLabel} <span className="text-foreground-subtle">{form.phoneOptional}</span>
                   </label>
                   <select id="projectType" name="projectType" defaultValue={form.projectTypes[0]} className={cn(inputClasses, "cursor-pointer")}>
                     {form.projectTypes.map((type) => (
@@ -203,7 +203,7 @@ export function Contact() {
                 </div>
                 <div className="flex flex-col gap-2 sm:col-span-2">
                   <label htmlFor="businessType" className="text-sm font-medium text-foreground">
-                    {form.businessTypeLabel}
+                    {form.businessTypeLabel} <span className="text-foreground-subtle">{form.phoneOptional}</span>
                   </label>
                   <select
                     id="businessType"

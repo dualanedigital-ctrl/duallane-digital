@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
+import { preload } from "react-dom";
 import { Inter } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { FloatingContact } from "@/components/layout/FloatingContact";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { EarthBackground } from "@/components/three/EarthBackground";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
@@ -21,6 +23,9 @@ export const metadata: Metadata = {
     template: `%s — ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
     "création de site web",
     "agence web",
@@ -77,6 +82,7 @@ const structuredData = {
   image: `${siteConfig.url}/logo-mark.png`,
   description: siteConfig.description,
   email: siteConfig.email,
+  telephone: siteConfig.phone,
   areaServed: "Worldwide",
   sameAs: [siteConfig.social.instagram, siteConfig.social.linkedin, siteConfig.social.x],
 };
@@ -86,6 +92,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Earth textures are normally only requested once the (client-only) 3D
+  // chunk has downloaded and executed. Preloading them here means the
+  // browser starts fetching the images from the initial HTML response,
+  // in parallel with that chunk instead of after it.
+  preload("/textures/earth/earth_daymap.webp", { as: "image", fetchPriority: "high" });
+  preload("/textures/earth/earth_normal.jpg", { as: "image" });
+  preload("/textures/earth/earth_specular.webp", { as: "image" });
+  preload("/textures/earth/earth_clouds.webp", { as: "image" });
+
   return (
     <html lang="fr" className={`${inter.variable} antialiased`}>
       <body className="flex min-h-screen flex-col bg-background text-foreground">
@@ -100,6 +115,7 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <Footer />
           </SmoothScroll>
+          <FloatingContact />
         </LanguageProvider>
       </body>
     </html>

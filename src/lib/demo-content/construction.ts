@@ -4,7 +4,6 @@ import type { DemoLocale } from "@/lib/demo-i18n/LanguageContext";
 
 export const constructionShared = {
   icon: HardHat,
-  theme: { accent: "#f59e0b", accent2: "#f97316" },
   phone: "(514) 555-0142",
   emergencyPhone: "(514) 555-0199",
   email: "info@construction-demo.com",

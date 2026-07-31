@@ -17,10 +17,10 @@ export function Earth({ radius = 1.4 }: { radius?: number }) {
 
   const [dayMap, normalMap, specularMap, cloudsMap] = useTexture(
     [
-      "/textures/earth/earth_daymap.jpg",
+      "/textures/earth/earth_daymap.webp",
       "/textures/earth/earth_normal.jpg",
-      "/textures/earth/earth_specular.jpg",
-      "/textures/earth/earth_clouds.png",
+      "/textures/earth/earth_specular.webp",
+      "/textures/earth/earth_clouds.webp",
     ],
     ([day, , , clouds]) => {
       day.colorSpace = THREE.SRGBColorSpace;

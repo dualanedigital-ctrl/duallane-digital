@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/layout/Logo";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { useTranslation } from "@/lib/i18n/LanguageContext";
+import { EASE_OUT_EXPO } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -38,8 +39,8 @@ export function Navbar() {
           : "border-b border-transparent bg-transparent"
       )}
     >
-      <Container className="flex h-18 items-center justify-between py-4">
-        <Logo />
+      <Container className="flex min-h-18 items-center justify-between py-4">
+        <Logo tagline={t.hero.badge} />
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Navigation principale">
           {t.nav.links.map((link) => (
@@ -84,7 +85,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.25, ease: EASE_OUT_EXPO }}
             className="overflow-hidden border-t border-border bg-background/95 backdrop-blur-xl lg:hidden"
           >
             <Container className="flex flex-col gap-1 py-6">

@@ -2,20 +2,20 @@
 
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, BadgeCheck, ChevronDown, Phone } from "lucide-react";
+import { ArrowRight, BadgeCheck, ChevronDown, Phone } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { MagneticButton } from "@/components/ui/MagneticButton";
 import { GlowBackdrop } from "@/components/ui/GlowBackdrop";
 import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 import { useTranslation } from "@/lib/i18n/LanguageContext";
 import { siteConfig } from "@/lib/site";
+import { EASE_OUT_EXPO as EASE } from "@/lib/motion";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
-
-const EASE = [0.16, 1, 0.3, 1] as const;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -68,17 +68,6 @@ export function Hero() {
       <GlowBackdrop className="-z-20" />
 
       <Container ref={contentRef} className="flex flex-col items-center text-center">
-        <motion.div
-          custom={0}
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-          className="inline-flex items-center gap-2 rounded-full border border-border-strong bg-surface/80 px-4 py-1.5 text-sm text-foreground-muted backdrop-blur"
-        >
-          <Sparkles className="h-3.5 w-3.5 text-accent" />
-          {t.hero.badge}
-        </motion.div>
-
         <motion.h1
           custom={0.08}
           initial="hidden"
@@ -108,14 +97,14 @@ export function Hero() {
           variants={fadeUp}
           className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
         >
-          <Button
+          <MagneticButton
             href="#contact"
             size="lg"
             className="hover:translate-y-0 hover:shadow-none active:translate-y-0"
           >
             {t.hero.cta}
             <ArrowRight className="h-4 w-4" />
-          </Button>
+          </MagneticButton>
           <Button href={`tel:${siteConfig.phone}`} variant="secondary" size="lg">
             {t.hero.callCta}
             <Phone className="h-4 w-4" />

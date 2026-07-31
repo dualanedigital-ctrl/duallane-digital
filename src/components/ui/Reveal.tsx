@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import { EASE_OUT_EXPO, REVEAL_VIEWPORT } from "@/lib/motion";
 
 const directions = {
   up: { y: 24, x: 0 },
@@ -33,7 +34,7 @@ export function Reveal({
       opacity: 1,
       x: 0,
       y: 0,
-      transition: { duration, delay, ease: [0.16, 1, 0.3, 1] },
+      transition: { duration, delay, ease: EASE_OUT_EXPO },
     },
   };
 
@@ -44,7 +45,7 @@ export function Reveal({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={REVEAL_VIEWPORT}
       variants={variants}
     >
       {children}

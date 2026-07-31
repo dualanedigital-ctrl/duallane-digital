@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useEffect, useMemo, useSyncExternalStore } from "react";
 import { translations, type Locale } from "@/lib/i18n/translations";
+import { triggerLocaleFade } from "@/lib/locale-fade";
 
 const STORAGE_KEY = "duallane-locale";
 const listeners = new Set<() => void>();
@@ -28,6 +29,7 @@ function getServerSnapshot(): Locale {
 }
 
 function writeLocale(locale: Locale) {
+  triggerLocaleFade();
   cachedLocale = locale;
   window.localStorage.setItem(STORAGE_KEY, locale);
   listeners.forEach((listener) => listener());

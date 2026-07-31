@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useMemo, useSyncExternalStore } from "react";
+import { triggerLocaleFade } from "@/lib/locale-fade";
 
 export type DemoLocale = "fr" | "en";
 
@@ -29,6 +30,7 @@ function getServerSnapshot(): DemoLocale {
 }
 
 function writeLocale(locale: DemoLocale) {
+  triggerLocaleFade();
   cachedLocale = locale;
   window.localStorage.setItem(STORAGE_KEY, locale);
   listeners.forEach((listener) => listener());

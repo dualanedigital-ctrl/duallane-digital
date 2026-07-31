@@ -4,7 +4,6 @@ import type { DemoLocale } from "@/lib/demo-i18n/LanguageContext";
 
 export const autoRepairShared = {
   icon: Wrench,
-  theme: { accent: "#ef4444", accent2: "#0ea5e9" },
   phone: "(514) 555-0163",
   towingPhone: "(514) 555-0911",
   email: "service@garage-demo.com",

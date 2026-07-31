@@ -4,7 +4,6 @@ import type { DemoLocale } from "@/lib/demo-i18n/LanguageContext";
 
 export const cafeShared = {
   icon: Coffee,
-  theme: { accent: "#b45309", accent2: "#d97706" },
   phone: "(514) 555-0155",
   email: "hello@cafe-demo.com",
   address: "512 Avenue du Mont-Royal E, Montreal, QC H2J 1W1",

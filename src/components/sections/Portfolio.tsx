@@ -6,6 +6,7 @@ import { Check, Maximize2 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { ImageReveal } from "@/components/ui/ImageReveal";
 import { Button } from "@/components/ui/Button";
 import { portfolio } from "@/lib/site";
 import { useTranslation } from "@/lib/i18n/LanguageContext";
@@ -40,7 +41,7 @@ export function Portfolio() {
             return (
               <Reveal key={project.id} delay={(index % 3) * 0.08}>
                 <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-all duration-300 hover:border-border-strong">
-                  <div className="relative aspect-4/3 w-full overflow-hidden">
+                  <ImageReveal className="relative aspect-4/3 w-full overflow-hidden">
                     <Image
                       src={project.image}
                       alt={text.description}
@@ -48,7 +49,7 @@ export function Portfolio() {
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                  </div>
+                  </ImageReveal>
                   <div className="flex flex-1 flex-col gap-3 p-6">
                     <span className="w-fit text-xs font-medium uppercase tracking-wide text-accent">
                       {text.industry}

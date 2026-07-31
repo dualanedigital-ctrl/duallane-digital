@@ -6,17 +6,21 @@ import { motion } from "framer-motion";
 import { X } from "lucide-react";
 import { DemoLanguageProvider } from "@/lib/demo-i18n/LanguageContext";
 import { DemoScrollerProvider } from "@/components/demo/DemoScrollerContext";
+import { EASE_OUT_EXPO as EASE } from "@/lib/motion";
 
-const EASE = [0.16, 1, 0.3, 1] as const;
 const TRANSITION_MS = 450;
 
+// Matches the demos' own light background so the lazy-load window doesn't
+// flash the (dark) main-site background before the light demo content mounts.
+const demoLoading = () => <div className="h-full w-full bg-[#f6f7fb]" />;
+
 const demoComponents = {
-  construction: dynamic(() => import("@/app/(demos)/portfolio/construction/ConstructionDemo").then((m) => m.ConstructionDemo)),
-  restaurant: dynamic(() => import("@/app/(demos)/portfolio/restaurant/RestaurantDemo").then((m) => m.RestaurantDemo)),
-  autoRepair: dynamic(() => import("@/app/(demos)/portfolio/auto-repair/AutoRepairDemo").then((m) => m.AutoRepairDemo)),
-  barbershop: dynamic(() => import("@/app/(demos)/portfolio/barbershop/BarbershopDemo").then((m) => m.BarbershopDemo)),
-  cafe: dynamic(() => import("@/app/(demos)/portfolio/cafe/CafeDemo").then((m) => m.CafeDemo)),
-  gym: dynamic(() => import("@/app/(demos)/portfolio/gym/GymDemo").then((m) => m.GymDemo)),
+  construction: dynamic(() => import("@/app/(demos)/portfolio/construction/ConstructionDemo").then((m) => m.ConstructionDemo), { loading: demoLoading }),
+  restaurant: dynamic(() => import("@/app/(demos)/portfolio/restaurant/RestaurantDemo").then((m) => m.RestaurantDemo), { loading: demoLoading }),
+  autoRepair: dynamic(() => import("@/app/(demos)/portfolio/auto-repair/AutoRepairDemo").then((m) => m.AutoRepairDemo), { loading: demoLoading }),
+  barbershop: dynamic(() => import("@/app/(demos)/portfolio/barbershop/BarbershopDemo").then((m) => m.BarbershopDemo), { loading: demoLoading }),
+  cafe: dynamic(() => import("@/app/(demos)/portfolio/cafe/CafeDemo").then((m) => m.CafeDemo), { loading: demoLoading }),
+  gym: dynamic(() => import("@/app/(demos)/portfolio/gym/GymDemo").then((m) => m.GymDemo), { loading: demoLoading }),
 } as const;
 
 export type DemoId = keyof typeof demoComponents;
@@ -50,13 +54,22 @@ export function PortfolioDemoModal({
   const panelRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const onCloseRef = useRef(onClose);
-  onCloseRef.current = onClose;
+
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  });
 
   // Drive the mount lifecycle manually: mount immediately when a demo is picked,
   // flip to "open" a tick later so the enter transition actually animates from
   // the closed state, and only unmount after the exit transition has had time
   // to finish. Kept independent of AnimatePresence, whose exit-completion
   // tracking doesn't reliably resolve through the lazy-loaded demo subtree.
+  //
+  // These setState calls are intentionally in the effect body (not a render-phase
+  // update): they synchronize local state to the demoId prop while also scheduling
+  // the RAF/timeout that drive the transition. Rewriting as a render-phase update
+  // made the mount state bounce under React's dev-mode double-render checks.
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     if (demoId) {
       setRenderedId(demoId);
@@ -68,6 +81,7 @@ export function PortfolioDemoModal({
     const timeout = window.setTimeout(() => setRenderedId(null), TRANSITION_MS);
     return () => window.clearTimeout(timeout);
   }, [demoId]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   useEffect(() => {
     if (!renderedId) return;

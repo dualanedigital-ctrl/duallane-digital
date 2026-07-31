@@ -63,14 +63,14 @@ export function BookingForm({
           )}
         >
           {sideNote && (
-            <Reveal direction="right">
+            <Reveal direction="right" className="min-w-0">
               <div className="flex h-full flex-col gap-3 rounded-2xl border border-border bg-surface p-8">
                 <h3 className="text-lg font-semibold text-foreground">{sideNote.title}</h3>
                 <p className="text-sm leading-relaxed text-foreground-muted">{sideNote.body}</p>
               </div>
             </Reveal>
           )}
-          <Reveal direction={sideNote ? "left" : "up"} delay={sideNote ? 0.1 : 0}>
+          <Reveal direction={sideNote ? "left" : "up"} delay={sideNote ? 0.1 : 0} className="min-w-0">
             <form onSubmit={handleSubmit} className="rounded-2xl border border-border bg-surface p-8">
               <div className="grid gap-5 sm:grid-cols-2">
                 {fields.map((field) => {

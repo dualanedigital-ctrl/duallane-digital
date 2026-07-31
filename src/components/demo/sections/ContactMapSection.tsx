@@ -94,7 +94,7 @@ export function ContactMapSection({
                 <iframe
                   title="Location map"
                   src={mapSrc}
-                  className="h-full w-full grayscale invert-0 [filter:grayscale(1)_invert(0.92)_contrast(0.9)]"
+                  className="h-full w-full [filter:grayscale(0.15)_contrast(1.02)]"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />

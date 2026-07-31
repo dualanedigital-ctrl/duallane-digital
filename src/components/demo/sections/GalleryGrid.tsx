@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { ImageReveal } from "@/components/ui/ImageReveal";
 import { unsplash } from "@/lib/demo-content/images";
 
 export type GalleryItem = {
@@ -30,7 +31,7 @@ export function GalleryGrid({
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item, index) => (
             <Reveal key={item.imageId + index} delay={(index % 3) * 0.08}>
-              <div className="group relative aspect-4/3 w-full overflow-hidden rounded-2xl border border-border bg-surface">
+              <ImageReveal className="group relative aspect-4/3 w-full overflow-hidden rounded-2xl border border-border bg-surface">
                 <Image
                   src={unsplash(item.imageId, 800)}
                   alt={item.caption ?? ""}
@@ -48,7 +49,7 @@ export function GalleryGrid({
                     {item.caption && <p className="mt-1 text-sm font-medium text-white">{item.caption}</p>}
                   </div>
                 )}
-              </div>
+              </ImageReveal>
             </Reveal>
           ))}
         </div>

@@ -4,7 +4,6 @@ import type { DemoLocale } from "@/lib/demo-i18n/LanguageContext";
 
 export const restaurantShared = {
   icon: UtensilsCrossed,
-  theme: { accent: "#dc2626", accent2: "#b45309" },
   phone: "(514) 555-0187",
   email: "reservations@restaurant-demo.com",
   address: "88 Rue Saint-Paul E, Montreal, QC H2Y 1G4",

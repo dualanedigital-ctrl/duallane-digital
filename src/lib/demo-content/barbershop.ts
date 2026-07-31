@@ -4,7 +4,6 @@ import type { DemoLocale } from "@/lib/demo-i18n/LanguageContext";
 
 export const barbershopShared = {
   icon: Scissors,
-  theme: { accent: "#eab308", accent2: "#a16207" },
   phone: "(514) 555-0121",
   email: "book@salon-demo.com",
   address: "3455 Boulevard Saint-Laurent, Montreal, QC H2X 2T6",

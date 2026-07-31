@@ -1,11 +1,21 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { siteConfig } from "@/lib/site";
+import { getClientIp, isRateLimited } from "@/lib/rate-limit";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev";
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 10 * 60 * 1000;
 
 export async function POST(request: Request) {
+  if (isRateLimited(getClientIp(request), RATE_LIMIT, RATE_WINDOW_MS)) {
+    return NextResponse.json(
+      { error: "Trop de demandes. Veuillez réessayer dans quelques minutes." },
+      { status: 429 }
+    );
+  }
+
   let body: Record<string, unknown>;
 
   try {

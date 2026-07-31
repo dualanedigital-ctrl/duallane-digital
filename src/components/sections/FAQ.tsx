@@ -2,21 +2,27 @@
 
 import { useId, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Plus } from "lucide-react";
+import { ArrowRight, Plus } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { Button } from "@/components/ui/Button";
+import { EASE_OUT_EXPO } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import { useTranslation } from "@/lib/i18n/LanguageContext";
 
 function FaqItem({
   question,
   answer,
+  badge,
+  ctaLabel,
   isOpen,
   onToggle,
 }: {
   question: string;
   answer: string;
+  badge?: string;
+  ctaLabel?: string;
   isOpen: boolean;
   onToggle: () => void;
 }) {
@@ -25,7 +31,12 @@ function FaqItem({
   const panelId = `${baseId}-panel`;
 
   return (
-    <div className="rounded-2xl border border-border bg-surface">
+    <div
+      className={cn(
+        "rounded-2xl border bg-surface",
+        badge ? "border-accent/30" : "border-border"
+      )}
+    >
       <button
         id={buttonId}
         type="button"
@@ -34,7 +45,14 @@ function FaqItem({
         aria-controls={panelId}
         className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
       >
-        <span className="text-base font-medium text-foreground">{question}</span>
+        <span className="flex flex-col items-start gap-2">
+          {badge && (
+            <span className="inline-flex w-fit items-center rounded-full bg-gradient-to-r from-accent to-accent-2 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-white uppercase">
+              {badge}
+            </span>
+          )}
+          <span className="text-base font-medium text-foreground">{question}</span>
+        </span>
         <Plus
           aria-hidden="true"
           className={cn(
@@ -52,12 +70,18 @@ function FaqItem({
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.25, ease: EASE_OUT_EXPO }}
             className="overflow-hidden"
           >
-            <p className="px-6 pb-5 text-sm leading-relaxed text-foreground-muted">
-              {answer}
-            </p>
+            <div className="flex flex-col gap-4 px-6 pb-6">
+              <p className="text-sm leading-relaxed text-foreground-muted">{answer}</p>
+              {ctaLabel && (
+                <Button href="#contact" size="md" className="w-fit">
+                  {ctaLabel}
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              )}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -84,6 +108,8 @@ export function FAQ() {
               <FaqItem
                 question={faq.question}
                 answer={faq.answer}
+                badge={faq.badge}
+                ctaLabel={faq.ctaLabel}
                 isOpen={openIndex === index}
                 onToggle={() => setOpenIndex(openIndex === index ? null : index)}
               />
