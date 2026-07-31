@@ -5,13 +5,10 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-# Strict-Transport-Security and X-Content-Type-Options are already sent by
-# Netlify's platform defaults (verified live) — not re-declared here to avoid
-# redundant/conflicting overrides. Everything below fills genuine gaps.
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com; font-src 'self' data:; frame-src https://www.google.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';"
+# Security headers (CSP, X-Frame-Options, Referrer-Policy, Permissions-Policy)
+# live in next.config.ts, not here — every route in this app is served
+# through the Next.js server function under @netlify/plugin-nextjs, and
+# netlify.toml's [[headers]] only reliably reach genuinely static assets.
+# Confirmed live: declaring them here alone had zero effect on page
+# responses. Strict-Transport-Security and X-Content-Type-Options are
+# already sent by Netlify's own platform defaults.
