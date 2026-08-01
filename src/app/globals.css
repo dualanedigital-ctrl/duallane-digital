@@ -16,6 +16,13 @@
   --success: #22c55e;
   --destructive: #f87171;
   --radius: 1rem;
+
+  /* Reserved space for PortfolioDemoModal's floating language switcher and
+     close button on mobile: the demo content they float over (DemoNavbar,
+     DemoHero) shifts down by this amount so nothing renders underneath
+     them. Safe-area-aware for the iPhone notch / Dynamic Island. */
+  --demo-modal-control-top: calc(env(safe-area-inset-top) + 1rem);
+  --demo-modal-chrome-reserved: calc(env(safe-area-inset-top) + 4.75rem);
 }
 
 @theme inline {

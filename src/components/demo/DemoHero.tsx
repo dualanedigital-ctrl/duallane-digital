@@ -11,7 +11,9 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 import { useDemoScroller } from "@/components/demo/DemoScrollerContext";
+import { useIsInsideDemoModal } from "@/components/demo/DemoModalChromeContext";
 import { EASE_OUT_EXPO as EASE } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -43,6 +45,7 @@ export function DemoHero({
   const imageRef = useRef<HTMLDivElement>(null);
   const reducedMotion = usePrefersReducedMotion();
   const scroller = useDemoScroller();
+  const insideModal = useIsInsideDemoModal();
 
   useGSAP(
     () => {
@@ -64,7 +67,14 @@ export function DemoHero({
   );
 
   return (
-    <section id="top" ref={sectionRef} className="relative flex min-h-screen items-center overflow-hidden pt-24">
+    <section
+      id="top"
+      ref={sectionRef}
+      className={cn(
+        "relative flex min-h-screen items-center overflow-hidden",
+        insideModal ? "pt-[calc(var(--demo-modal-chrome-reserved)+6rem)] lg:pt-24" : "pt-24"
+      )}
+    >
       <div ref={imageRef} className="absolute inset-0 -z-20 scale-110">
         <Image src={imageUrl} alt="" fill priority sizes="100vw" className="object-cover" />
       </div>

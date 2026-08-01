@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import { X } from "lucide-react";
 import { DemoLanguageProvider } from "@/lib/demo-i18n/LanguageContext";
 import { DemoScrollerProvider } from "@/components/demo/DemoScrollerContext";
+import { DemoModalChromeProvider } from "@/components/demo/DemoModalChromeContext";
+import { DemoLanguageSwitcher } from "@/components/demo/DemoLanguageSwitcher";
 import { EASE_OUT_EXPO as EASE } from "@/lib/motion";
 
 const TRANSITION_MS = 450;
@@ -151,18 +153,31 @@ export function PortfolioDemoModal({
         transition={{ duration: TRANSITION_MS / 1000, ease: EASE }}
         className="glow-accent relative h-full w-full overflow-hidden border border-white/10 bg-background shadow-2xl sm:h-[94vh] sm:w-[96vw] sm:rounded-3xl"
       >
+        {/* Below lg, the demo's own language switcher lives inside a collapsed
+            hamburger menu (see DemoNavbar) — too easy to miss, and its trigger
+            sits right where the close button floats. This pill gives it a
+            permanent, dedicated spot instead, on the opposite side of the
+            panel from the close button so the two never compete for space. */}
+        <div className="absolute left-4 top-[var(--demo-modal-control-top)] z-[105] lg:hidden">
+          <DemoLanguageProvider>
+            <DemoLanguageSwitcher className="h-11 border-white/15 bg-background/70 text-foreground backdrop-blur" />
+          </DemoLanguageProvider>
+        </div>
+
         <button
           ref={closeButtonRef}
           type="button"
           onClick={onClose}
           aria-label="Close demo"
-          className="absolute right-4 top-4 z-[110] flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-background/70 text-foreground backdrop-blur transition-colors hover:bg-background/90"
+          className="absolute right-4 top-[var(--demo-modal-control-top)] z-[110] flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-background/70 text-foreground backdrop-blur transition-colors hover:bg-background/90"
         >
           <X className="h-5 w-5" />
         </button>
 
         <div className="h-full w-full bg-background">
-          <ScrolledDemo demoId={renderedId} />
+          <DemoModalChromeProvider>
+            <ScrolledDemo demoId={renderedId} />
+          </DemoModalChromeProvider>
         </div>
       </motion.div>
     </motion.div>

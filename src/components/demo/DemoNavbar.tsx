@@ -6,6 +6,7 @@ import { Menu, X, type LucideIcon } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { DemoLanguageSwitcher } from "@/components/demo/DemoLanguageSwitcher";
+import { useIsInsideDemoModal } from "@/components/demo/DemoModalChromeContext";
 import { useDemoLanguage } from "@/lib/demo-i18n/LanguageContext";
 import { demoUiStrings } from "@/lib/demo-i18n/uiStrings";
 import { EASE_OUT_EXPO } from "@/lib/motion";
@@ -30,6 +31,7 @@ export function DemoNavbar({
   const [open, setOpen] = useState(false);
   const { locale } = useDemoLanguage();
   const ui = demoUiStrings[locale];
+  const insideModal = useIsInsideDemoModal();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -50,7 +52,8 @@ export function DemoNavbar({
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        "fixed inset-x-0 z-50 transition-all duration-300",
+        insideModal ? "top-[var(--demo-modal-chrome-reserved)] lg:top-0" : "top-0",
         scrolled
           ? "border-b border-border bg-background/80 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
@@ -124,7 +127,9 @@ export function DemoNavbar({
                   </a>
                 ))}
               </div>
-              <DemoLanguageSwitcher className="w-fit" />
+              {/* Standalone pages only — inside the modal, the language switcher
+                  already floats persistently in the modal chrome. */}
+              {!insideModal && <DemoLanguageSwitcher className="w-fit" />}
               <Button
                 href={ctaHref}
                 size="md"
