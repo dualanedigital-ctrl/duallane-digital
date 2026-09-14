@@ -36,13 +36,32 @@ export function Pricing() {
                     {plan.badge}
                   </span>
                 )}
-                <h3 className="text-lg font-semibold text-foreground">{plan.name}</h3>
-                <div className="mt-4 flex items-baseline gap-1.5">
-                  <span className="text-4xl font-semibold text-gradient">{plan.price}</span>
+
+                <p className="text-xs font-semibold tracking-wide text-foreground-muted uppercase">
+                  {plan.name}
+                </p>
+
+                <div className="mt-3 flex flex-wrap items-baseline gap-x-1.5 gap-y-0">
+                  <span className="text-4xl font-bold whitespace-nowrap text-gradient sm:text-5xl">
+                    {plan.heroPrice}
+                  </span>
+                  {plan.heroSuffix && (
+                    <span className="text-base font-medium whitespace-nowrap text-foreground-muted">
+                      {plan.heroSuffix}
+                    </span>
+                  )}
                 </div>
-                {plan.period && (
-                  <span className="mt-1 text-sm text-foreground-muted">{plan.period}</span>
+                <p className="mt-1 text-sm text-foreground-muted">{plan.subtitle}</p>
+
+                {(plan.downPayment || plan.total) && (
+                  <div className="mt-4 flex flex-col gap-1 border-t border-border pt-4">
+                    {plan.downPayment && (
+                      <p className="text-sm text-foreground">{plan.downPayment}</p>
+                    )}
+                    {plan.total && <p className="text-xs text-foreground-subtle">{plan.total}</p>}
+                  </div>
                 )}
+
                 <ul className="mt-6 flex flex-1 flex-col gap-2.5">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2.5 text-sm text-foreground-muted">
@@ -51,6 +70,7 @@ export function Pricing() {
                     </li>
                   ))}
                 </ul>
+
                 <Button
                   href="#contact"
                   variant={plan.highlighted ? "primary" : "secondary"}
