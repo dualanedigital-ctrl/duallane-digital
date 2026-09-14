@@ -32,6 +32,21 @@ export type Translations = {
     description: string;
     items: { title: string; description: string; features: string[] }[];
   };
+  pricing: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    note: string;
+    items: {
+      name: string;
+      price: string;
+      period?: string;
+      badge?: string;
+      features: string[];
+      highlighted?: boolean;
+      ctaLabel: string;
+    }[];
+  };
   portfolio: {
     eyebrow: string;
     title: string;
@@ -124,6 +139,7 @@ export const translations: Record<Locale, Translations> = {
       links: [
         { key: "whyUs", label: "Pourquoi nous", href: "#pourquoi-nous" },
         { key: "services", label: "Services", href: "#services" },
+        { key: "pricing", label: "Tarifs", href: "#tarifs" },
         { key: "portfolio", label: "Réalisations", href: "#realisations" },
         { key: "process", label: "Processus", href: "#processus" },
         { key: "faq", label: "FAQ", href: "#faq" },
@@ -220,6 +236,61 @@ export const translations: Record<Locale, Translations> = {
         },
       ],
     },
+    pricing: {
+      eyebrow: "Tarifs",
+      title: "Un tarif clair, sans surprise",
+      description:
+        "Notre offre de lancement à 300 $ CA, payable comptant ou étalée sur 12 mois selon la formule qui vous convient.",
+      note: "Offre de lancement disponible pour une durée limitée, en échange de l'autorisation d'ajouter votre site à notre portfolio.",
+      items: [
+        {
+          name: "Comptant",
+          price: "300 $",
+          period: "paiement unique",
+          badge: "Offre de lancement",
+          features: [
+            "Aucun frais supplémentaire",
+            "Réglé en un seul versement à la commande",
+            "Le moins cher au total",
+          ],
+          highlighted: true,
+          ctaLabel: "Obtenir cette offre",
+        },
+        {
+          name: "Plan A",
+          price: "850 $",
+          period: "sur 12 mois",
+          features: [
+            "300 $ à la commande",
+            "50 $ / mois pendant 11 mois",
+            "Mise de fond la plus élevée des 3 plans",
+          ],
+          ctaLabel: "Choisir ce plan",
+        },
+        {
+          name: "Plan B",
+          price: "865 $",
+          period: "sur 12 mois",
+          features: [
+            "150 $ à la commande",
+            "65 $ / mois pendant 11 mois",
+            "Mise de fond réduite",
+          ],
+          ctaLabel: "Choisir ce plan",
+        },
+        {
+          name: "Plan C",
+          price: "900 $",
+          period: "sur 12 mois",
+          features: [
+            "Aucune mise de fond",
+            "75 $ / mois pendant 12 mois",
+            "Le plus accessible pour démarrer",
+          ],
+          ctaLabel: "Choisir ce plan",
+        },
+      ],
+    },
     portfolio: {
       eyebrow: "Réalisations",
       title: "Des projets pensés pour convertir",
@@ -304,6 +375,11 @@ export const translations: Record<Locale, Translations> = {
           answer:
             "Pour une durée limitée, nous créons des sites web professionnels à seulement 300 $ CA, en échange de l'autorisation d'ajouter le site à notre portfolio. Cette offre nous permet de bâtir notre portfolio tout en offrant à nos premiers clients un site web moderne, performant et professionnel à un tarif exceptionnel. Le prix comprend un site web personnalisé, adapté à votre entreprise, optimisé pour mobile, rapide, sécurisé et conçu pour convertir vos visiteurs en clients. Cette offre est disponible pour une durée limitée.",
           ctaLabel: "Obtenir cette offre",
+        },
+        {
+          question: "Proposez-vous des plans de paiement ?",
+          answer:
+            "Oui, si vous préférez étaler le paiement de l'offre de lancement plutôt que de payer 300 $ comptant, trois options sont disponibles sur 12 mois : 300 $ à la commande puis 50 $/mois pendant 11 mois (850 $ au total) ; 150 $ à la commande puis 65 $/mois pendant 11 mois (865 $ au total) ; ou 75 $/mois pendant 12 mois, sans mise de fond (900 $ au total).",
         },
         {
           question: "Combien de temps faut-il pour créer mon site ?",
@@ -426,6 +502,7 @@ export const translations: Record<Locale, Translations> = {
       links: [
         { key: "whyUs", label: "Why Us", href: "#pourquoi-nous" },
         { key: "services", label: "Services", href: "#services" },
+        { key: "pricing", label: "Pricing", href: "#tarifs" },
         { key: "portfolio", label: "Work", href: "#realisations" },
         { key: "process", label: "Process", href: "#processus" },
         { key: "faq", label: "FAQ", href: "#faq" },
@@ -522,6 +599,61 @@ export const translations: Record<Locale, Translations> = {
         },
       ],
     },
+    pricing: {
+      eyebrow: "Pricing",
+      title: "Clear pricing, no surprises",
+      description:
+        "Our launch offer is $300 CAD — pay it upfront, or spread it out over 12 months with the plan that fits you.",
+      note: "Launch offer available for a limited time, in exchange for permission to feature your site in our portfolio.",
+      items: [
+        {
+          name: "Upfront",
+          price: "$300",
+          period: "one-time payment",
+          badge: "Launch Offer",
+          features: [
+            "No extra fees",
+            "Paid in a single payment at order time",
+            "The cheapest option overall",
+          ],
+          highlighted: true,
+          ctaLabel: "Get This Offer",
+        },
+        {
+          name: "Plan A",
+          price: "$850",
+          period: "over 12 months",
+          features: [
+            "$300 down at order time",
+            "$50 / month for 11 months",
+            "Highest down payment of the 3 plans",
+          ],
+          ctaLabel: "Choose This Plan",
+        },
+        {
+          name: "Plan B",
+          price: "$865",
+          period: "over 12 months",
+          features: [
+            "$150 down at order time",
+            "$65 / month for 11 months",
+            "Lower down payment",
+          ],
+          ctaLabel: "Choose This Plan",
+        },
+        {
+          name: "Plan C",
+          price: "$900",
+          period: "over 12 months",
+          features: [
+            "No down payment",
+            "$75 / month for 12 months",
+            "The most accessible way to start",
+          ],
+          ctaLabel: "Choose This Plan",
+        },
+      ],
+    },
     portfolio: {
       eyebrow: "Our Work",
       title: "Projects designed to convert",
@@ -606,6 +738,11 @@ export const translations: Record<Locale, Translations> = {
           answer:
             "For a limited time, we're building professional websites for just $300 CAD, in exchange for permission to feature the site in our portfolio. This offer lets us grow our portfolio while giving our first clients a modern, high-performing, professional website at an exceptional rate. The price includes a fully custom website tailored to your business — mobile-optimized, fast, secure, and designed to convert your visitors into clients. This offer is available for a limited time.",
           ctaLabel: "Get This Offer",
+        },
+        {
+          question: "Do you offer payment plans?",
+          answer:
+            "Yes — if you'd rather spread out the launch offer than pay $300 upfront, three 12-month options are available: $300 down then $50/month for 11 months ($850 total); $150 down then $65/month for 11 months ($865 total); or $75/month for 12 months with no down payment ($900 total).",
         },
         {
           question: "How long does it take to build my site?",
