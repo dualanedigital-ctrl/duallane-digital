@@ -6,7 +6,6 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { useTranslation } from "@/lib/i18n/LanguageContext";
-import { cn } from "@/lib/utils";
 
 export function Pricing() {
   const { t } = useTranslation();
@@ -20,17 +19,10 @@ export function Pricing() {
           description={t.pricing.description}
         />
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-3">
           {t.pricing.items.map((plan) => (
             <Reveal key={plan.name}>
-              <div
-                className={cn(
-                  "flex h-full flex-col rounded-2xl border p-8",
-                  plan.highlighted
-                    ? "border-accent/40 bg-gradient-to-b from-accent/10 via-surface to-surface"
-                    : "border-border bg-surface hover:border-border-strong hover:bg-surface-hover"
-                )}
-              >
+              <div className="flex h-full flex-col rounded-2xl border border-border bg-surface p-8 hover:border-border-strong hover:bg-surface-hover">
                 {plan.badge && (
                   <span className="mb-4 inline-flex w-fit items-center rounded-full bg-gradient-to-r from-accent to-accent-2 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-white uppercase">
                     {plan.badge}
@@ -53,12 +45,9 @@ export function Pricing() {
                 </div>
                 <p className="mt-1 text-sm text-foreground-muted">{plan.subtitle}</p>
 
-                {(plan.downPayment || plan.total) && (
-                  <div className="mt-4 flex flex-col gap-1 border-t border-border pt-4">
-                    {plan.downPayment && (
-                      <p className="text-sm text-foreground">{plan.downPayment}</p>
-                    )}
-                    {plan.total && <p className="text-xs text-foreground-subtle">{plan.total}</p>}
+                {plan.downPayment && (
+                  <div className="mt-4 border-t border-border pt-4">
+                    <p className="text-sm text-foreground">{plan.downPayment}</p>
                   </div>
                 )}
 
@@ -71,11 +60,7 @@ export function Pricing() {
                   ))}
                 </ul>
 
-                <Button
-                  href="#contact"
-                  variant={plan.highlighted ? "primary" : "secondary"}
-                  className="mt-8 w-full"
-                >
+                <Button href="#contact" variant="secondary" className="mt-8 w-full">
                   {plan.ctaLabel}
                 </Button>
               </div>

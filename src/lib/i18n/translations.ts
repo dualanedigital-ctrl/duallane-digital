@@ -44,7 +44,6 @@ export type Translations = {
       heroSuffix?: string;
       subtitle: string;
       downPayment?: string;
-      total?: string;
       features: string[];
       highlighted?: boolean;
       ctaLabel: string;
@@ -243,29 +242,15 @@ export const translations: Record<Locale, Translations> = {
       eyebrow: "Tarifs",
       title: "Un tarif clair, sans surprise",
       description:
-        "Pas besoin de payer près de 900 $ d'un coup : commencez votre site professionnel avec un paiement mensuel accessible, ou optez pour le tarif comptant à 300 $.",
+        "Commencez votre site professionnel avec un paiement mensuel accessible, sans gros montant à payer d'un coup.",
       note: "Offre de lancement disponible pour une durée limitée, en échange de l'autorisation d'ajouter votre site à notre portfolio.",
       items: [
-        {
-          name: "Comptant",
-          badge: "Offre de lancement",
-          heroPrice: "300 $",
-          subtitle: "Paiement unique",
-          features: [
-            "Aucun frais supplémentaire",
-            "Réglé en un seul versement à la commande",
-            "Le moins cher au total",
-          ],
-          highlighted: true,
-          ctaLabel: "Obtenir cette offre",
-        },
         {
           name: "Plan A",
           heroPrice: "50 $",
           heroSuffix: "/ mois",
           subtitle: "pendant 11 mois",
           downPayment: "300 $ à la commande",
-          total: "Total : 850 $",
           features: ["Mise de fond la plus élevée des 3 plans"],
           ctaLabel: "Choisir ce plan",
         },
@@ -276,7 +261,6 @@ export const translations: Record<Locale, Translations> = {
           heroSuffix: "/ mois",
           subtitle: "pendant 11 mois",
           downPayment: "150 $ à la commande",
-          total: "Total : 865 $",
           features: ["Mise de fond réduite"],
           ctaLabel: "Choisir ce plan",
         },
@@ -287,7 +271,6 @@ export const translations: Record<Locale, Translations> = {
           heroSuffix: "/ mois",
           subtitle: "pendant 12 mois",
           downPayment: "0 $ à la commande",
-          total: "Total : 900 $",
           features: ["Le plus accessible pour démarrer"],
           ctaLabel: "Choisir ce plan",
         },
@@ -605,29 +588,15 @@ export const translations: Record<Locale, Translations> = {
       eyebrow: "Pricing",
       title: "Clear pricing, no surprises",
       description:
-        "No need to pay nearly $900 upfront — start your professional website with an affordable monthly payment, or choose the $300 upfront rate.",
+        "Start your professional website with an affordable monthly payment — no big amount to pay upfront.",
       note: "Launch offer available for a limited time, in exchange for permission to feature your site in our portfolio.",
       items: [
-        {
-          name: "Upfront",
-          badge: "Launch Offer",
-          heroPrice: "$300",
-          subtitle: "One-time payment",
-          features: [
-            "No extra fees",
-            "Paid in a single payment at order time",
-            "The cheapest option overall",
-          ],
-          highlighted: true,
-          ctaLabel: "Get This Offer",
-        },
         {
           name: "Plan A",
           heroPrice: "$50",
           heroSuffix: "/ month",
           subtitle: "for 11 months",
           downPayment: "$300 down at order time",
-          total: "Total: $850",
           features: ["Highest down payment of the 3 plans"],
           ctaLabel: "Choose This Plan",
         },
@@ -638,7 +607,6 @@ export const translations: Record<Locale, Translations> = {
           heroSuffix: "/ month",
           subtitle: "for 11 months",
           downPayment: "$150 down at order time",
-          total: "Total: $865",
           features: ["Lower down payment"],
           ctaLabel: "Choose This Plan",
         },
@@ -649,7 +617,6 @@ export const translations: Record<Locale, Translations> = {
           heroSuffix: "/ month",
           subtitle: "for 12 months",
           downPayment: "$0 down at order time",
-          total: "Total: $900",
           features: ["The most accessible way to start"],
           ctaLabel: "Choose This Plan",
         },
